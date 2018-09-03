@@ -1,3 +1,5 @@
+# Processes a list of sentences (such as in scenarios for context-free grammars) or a corpus to reorder sentences based on TF and number of tokens
+# 
 # Install if not already installed
 # installed.packages("stringr", dependencies = TRUE)
 # install.packages("tokenizers")

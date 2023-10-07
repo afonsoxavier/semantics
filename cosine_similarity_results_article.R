@@ -9,7 +9,7 @@ library(CircStats)
 library(ggplot2) 
 
 # Reads a folder with the whole corpus. Each document is a sentence (marked here by a stop . in the text)
-pinto <- VCorpus(DirSource(directory = "data/data2lexemes_rel/", encoding = "UTF-8"), readerControl = list(language = "pt"))
+pinto <- VCorpus(DirSource(directory = "data/", encoding = "UTF-8"), readerControl = list(language = "pt")) # this line requires a collection of documents. Place the documents you want to work with here.
 
 
 stopwords<-read.table("data/results_test2/morestop1.txt")
@@ -39,7 +39,9 @@ diag(out) <- 0       # (b/c you don't count co-occurrences of an aspect with its
 
 
 
-# Tests. Find particular associations #
+# Tests. Find particular associations #  
+# The following lines will work with the original collection of documents. Replace the terms with whatever terms you may want to experiment in your own collection #
+
 cidade<-sort(out["cidade",], decreasing=TRUE)
 ilha<-sort(out["ilha",], decreasing=TRUE)
 

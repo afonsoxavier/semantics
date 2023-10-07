@@ -11,11 +11,6 @@
 
 library(CircStats)
 
-cos_dif<-function(degree){
-  cos_d<-cos(rad(degree))       # basic returns cos value for an angle in degrees
-  return (cos_d)
-}
-
 occur<-function(occur1){
   pairs_t<-length(occur1)/2
   angles<-c(1:pairs_t)
@@ -28,10 +23,7 @@ occur<-function(occur1){
   return (angles)
 }
 
-occurrences<-c(1,5,1,2,4,0)     # occurrences for terms a,b,c as a vector a1,12,b1,b2,c1,c2
-ang<-occur(occurrences)
-
-# Easier approach
+# Data from example 
 runs<-c(1,1,4)
 barks<-c(5,2,0)
 pairs<-length(runs)
@@ -39,8 +31,7 @@ angles2<-c(1:length(runs))
 
 for (i in 1:pairs){
   angles2[i]<-atan(barks[i]/runs[i])   # bring angle in radians
-  print(deg(angles2[i]))
-}
+  }
 
 # cosine distance from term a to b and so on #
 dif1_2<-cos(abs(ang[1]-ang[2]))

@@ -12,9 +12,9 @@ library(ggplot2)
 pinto <- VCorpus(DirSource(directory = "data/", encoding = "UTF-8"), readerControl = list(language = "pt")) # this line requires a collection of documents. Place the documents you want to work with here.
 
 
-stopwords<-read.table("data/results_test2/morestop1.txt")
+stopwords<-read.table("data/results_test2/morestop1.txt")  # Adds a file with stopwords. Avoid these two lines or change the first line to upload a text file with stopwords of the intended language (one per line in a txt document)
 stopwords1<-as.vector(stopwords$V1)
-stopwords1<-as.vector(stopwords$V1)
+
 
 docs <- tm_map(pinto, content_transformer(tolower))
 docs <- tm_map(docs, removePunctuation) 
@@ -40,7 +40,7 @@ diag(out) <- 0       # (b/c you don't count co-occurrences of an aspect with its
 
 
 # Tests. Find particular associations #  
-# The following lines will work with the original collection of documents. Replace the terms with whatever terms you may want to experiment in your own collection #
+# The following lines will work with the original collection of documents. Replace the terms with whatever expressions you may want to experiment in your own collection #
 
 cidade<-sort(out["cidade",], decreasing=TRUE)
 ilha<-sort(out["ilha",], decreasing=TRUE)
@@ -53,9 +53,6 @@ compare<-c( "iaoa","çamatra", "pequim", "martauão", "odiaa",  "tanixumaa")
 compare<-sort(compare)
 cidade1<-cidade[compare]
 ilha1<-ilha[compare]
-ilha1[6]<-ilha1[6]+1  #This version of the script after updating TM on the 7th of November 2023 gives one occurrence less for Tanixumaa. 
-# If you are following this script reading from a paper commenting this script, you may want to keep this line to check against previous results it is corrected
-# Otherwise, you can remove the last line of code above
 
 
 # Calculate angles
